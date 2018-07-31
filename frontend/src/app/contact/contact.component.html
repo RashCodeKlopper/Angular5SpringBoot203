@@ -1,0 +1,96 @@
+<div class="container">
+  <h2>Contact List
+
+    <!-- <a [routerLink]="['/contact-create']">
+        <i class="fa fa-plus"></i>
+      </a> -->
+
+    <a [routerLink]="['/contact-create']" class="btn btn-success">
+      <i class="fa fa-plus"></i>
+    </a>
+
+  </h2>
+
+  <!-- <div id="animate-fas-wrapper">
+    <a [routerLink]="['/contact-create']" class="btn btn-default btn-lg">
+      <i class="fas fa-plus"></i>
+    </a>
+  </div> -->
+
+  <!-- <button type="button" (click)="createContact()" class="waves-effect waves-light btn"
+              style="width: 100px ; padding-right: 20px">Add
+              <i class="material-icons right">add</i>
+      </button> -->
+  <!-- <a [routerLink]="['/contact-create']" class="btn btn-default btn-lg">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a> -->
+
+  <p-table #contactsTable [value]="contacts" [rows]="15" [paginator]="true" [responsive]="true" class="table table-hover table-mc-blue bordered highlight"
+    selectionMode="single" [(selection)]="selectedContact" (onRowSelect)="onRowSelect($event)"
+    [style]="{'width':'1000px'}">
+
+    <ng-template pTemplate="caption">
+        <div class="ui-helper-clearfix">
+            <button type="button" pButton icon="fa fa-file-o" iconPos="left" label="Export Data" (click)="contactsTable.exportCSV()" style="float:left"></button>
+        </div>
+      <div style="text-align: left">
+        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <input type="text" pInputText size="50" placeholder="Filter records" (input)="contactsTable.filterGlobal($event.target.value, 'contains')"
+          style="width:auto">
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-contact>
+      <tr>
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.address }}</td>
+        <td>{{ contact.city }}</td>
+        <td>
+          <a [routerLink]="['/contact-detail', contact.id]">Show Detail
+            <i class="fa fa-eye prefix" aria-hidden="true"></i>
+          </a>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+    
+  <!-- <p-table [value]="contacts" [rows]="15" [paginator]="true" [responsive]="true"
+           class="table table-hover table-mc-blue bordered highlight" [globalFilterFields]="gbuf"
+           selectionMode="single" [(selection)]="selectedContact" (onRowSelect)="onRowSelect($event)"
+           [style]="{'width':'1000px'}">
+    <p-column field="name" header="Name" [sortable]="true" [style]="{'text-align': 'left'}"></p-column>
+    <p-column field="address" header="Address" [sortable]="true" [style]="{'text-align': 'left'}"></p-column>
+    <p-column field="city" header="City" [sortable]="true" [style]="{'text-align': 'left'}"></p-column>
+  </p-table> -->
+
+  <!-- <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contacts">
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.address }}</td>
+        <td>{{ contact.city }}</td>
+        <td>
+          <a [routerLink]="['/contact-detail', contact.id]">Show Detail</a>
+        </td>
+      </tr>
+    </tbody>
+  </table> -->
+
+</div>

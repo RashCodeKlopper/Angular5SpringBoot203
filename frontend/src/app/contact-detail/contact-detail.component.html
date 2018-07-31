@@ -1,0 +1,99 @@
+<div class="card-container">
+
+  <div class="valign-wrapper row">
+
+    <div class="card-panel hoverable">
+
+      <div class="card border-primary mb-3">
+
+        <div class="card-body text-secondary">
+
+          <h2 class="card-title">{{ contact?.name }}</h2>
+
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">account_circle</i>
+                  <!-- <label for="name">Name</label> -->
+                  <input type="text" placeholder="Name" id="name" name="name" [(ngModel)]="contact.name" disabled style="font-weight: bold ; color: #696969">
+                </div>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">home</i>
+                  <input type="text" placeholder="Address" id="address" name="address" [(ngModel)]="contact.address" disabled style="font-weight: bold ; color: #696969">
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">location_city</i>
+                  <input type="text" placeholder="City" id="city" name="city" [(ngModel)]="contact.city" disabled style="font-weight: bold ; color: #696969">
+                </div>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">phone</i>
+                  <input type="text" placeholder="Phone" id="phone" name="phone" [(ngModel)]="contact.phone" disabled style="font-weight: bold ; color: #696969">
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="row">
+            <form class="col s6">
+              <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">email</i>
+                  <input type="text" placeholder="Email" id="email" name="email" [(ngModel)]="contact.email" disabled style="font-weight: bold ; color: #696969">
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- <dl class="list">
+          <dt>Address</dt>
+          <dd>{{ contact?.address }}</dd>
+          <dt>City</dt>
+          <dd>{{ contact?.city }}</dd>
+          <dt>Phone</dt>
+          <dd>{{ contact?.phone }}</dd>
+          <dt>E-mail</dt>
+          <dd>{{ contact?.email }}</dd>
+        </dl> -->
+
+          <div class="button-save" align="right">
+            <button type="button" (click)="editContact(contact.id)" class="waves-effect waves-light btn"
+                    style="width: 170px ; padding-right: 20px">Edit
+                    <i class="material-icons right">mode_edit</i>
+            </button>
+            <button type="button" (click)="deleteContact(contact.id)" class="waves-effect waves-light btn"
+                    style="width: 170px">Delete
+                    <i class="material-icons right">delete</i>
+            </button>
+          </div>
+
+          <!-- <div class="row">
+          <div class="col-md-12">
+            <a item-width="80px" [routerLink]="['/contact-edit', contact.id]" class="btn btn-success">EDIT</a>
+            <button class="btn btn-danger" type="button" item-width="80px"
+                    (click)="deleteContact(contact.id)">DELETE</button>
+          </div>
+        </div> -->
+
+          <div class="fixed-action-btn" style="bottom: 45px; left: 24px; width: 55.5px">
+            <a class="btn-floating btn-large waves-effect waves-light" (click)="goBack()">
+              <i class="large material-icons">arrow_back</i>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
